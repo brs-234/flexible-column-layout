@@ -1,0 +1,37 @@
+<mvc:View controllerName="com.brs.fleixblecolumnlayout.controller.FirstColumn"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f">
+        <f:DynamicPage id="dyanmicPageID">
+            <f:title>
+                <f:DynamicPageTitle id="dynPageTitle1">
+                    <f:heading>
+                        <Title id="products" text="Products"/>                        
+                    </f:heading>
+                </f:DynamicPageTitle>
+            </f:title>
+            <f:content>
+                <List id="list" items="{
+                                    path: '/Products',
+                                    events:{
+                                        dataReceived: '.onDataReceived'
+                                    }                                          
+                                }"
+                            growing="true"
+                            growingThreshold="10"
+                            mode="SingleSelectLeft" 
+                            selectionChange="onNavigation">
+                    <StandardListItem id="sListItem"
+                                        title="{ProductName} - {ProductID}"
+                                        description="{QuantityPerUnit}"
+                                        info="{UnitsInStock}"
+                                        type="Active"
+                                        >
+                    </StandardListItem>
+                    
+                </List>
+            </f:content>
+        </f:DynamicPage>
+
+
+</mvc:View>

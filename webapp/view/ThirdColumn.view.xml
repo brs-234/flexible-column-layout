@@ -1,0 +1,9 @@
+<mvc:View controllerName="com.brs.fleixblecolumnlayout.controller.ThirdColumn"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:u="sap.uxap"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:f="sap.f">
+    <Page id="tPage"></Page>
+
+</mvc:View>

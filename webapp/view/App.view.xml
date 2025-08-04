@@ -1,0 +1,19 @@
+<mvc:View controllerName="com.brs.fleixblecolumnlayout.controller.App"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f"
+    xmlns="sap.m">
+    <App id="app">
+    <f:FlexibleColumnLayout id="fcl" layout="{ui>/layout}">
+        <f:beginColumnPages>
+            <mvc:XMLView id="firstPageView" viewName="com.brs.fleixblecolumnlayout.view.FirstColumn"></mvc:XMLView>
+        </f:beginColumnPages>
+        <f:midColumnPages>
+            <mvc:XMLView id="secondPageView" viewName="com.brs.fleixblecolumnlayout.view.SecondColumn"></mvc:XMLView>
+        </f:midColumnPages>
+        <f:endColumnPages>
+            <mvc:XMLView id="thridPageView" viewName="com.brs.fleixblecolumnlayout.view.ThirdColumn"></mvc:XMLView>
+        </f:endColumnPages>
+    </f:FlexibleColumnLayout>    
+    </App>
+</mvc:View>

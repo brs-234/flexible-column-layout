@@ -1,0 +1,164 @@
+<mvc:View controllerName="com.brs.fleixblecolumnlayout.controller.SecondColumn"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:u="sap.uxap"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:f="sap.f">
+    <u:ObjectPageLayout id="objectPageLayout"
+        showTitleInHeaderContent="true"
+        alwaysShowContentHeader="false"
+        preserveHeaderStateOnScroll="true"
+        headerContentPinnable="true"
+        isChildPage="true"
+        upperCaseAnchorBar="false">
+        <u:headerTitle>
+            <u:ObjectPageDynamicHeaderTitle id="opdTitle">
+                <u:expandedHeading>
+                    <Title id="title1" text="{Category/CategoryName}" wrapping="true"></Title>
+                </u:expandedHeading>
+                <u:snappedHeading>
+                    <!-- <FlexBox id="flexBox" wrap="Wrap" 
+                            alignItems="Center">
+                            <FlexBox id="flexBox2">
+                                <Avatar id="pic" src="{
+                                                    parts: [
+                                                        { path: 'Category/Picture' }
+                                                    ],
+                                                    formatter: '.formatter.formatPicture'}"></Avatar>
+                            </FlexBox>
+                        
+                    </FlexBox> -->
+                </u:snappedHeading>
+                <u:actions>
+                    <Button id="edit" text="Edit" type="Emphasized" press="toggelAreaPriority"></Button>
+                    <Button id="delete" text="Delete" type="Transparent"></Button>
+                    <Button id="copy" text="Copy" type="Transparent" ></Button>
+                    <Button id="more" icon="sap-icon://action" type="Transparent"></Button>
+                </u:actions>
+            </u:ObjectPageDynamicHeaderTitle>
+        </u:headerTitle>
+        <u:headerContent>
+            <FlexBox id="fbox1" wrap="Wrap" fitContainer="true" >
+                <VBox id="vBox1" justifyContent="Center" class="sapUiSmallMarginEnd">
+                   <Label id="label1" text="Category"></Label>
+                    <Text id="text1" text="{Category/Description}"></Text>
+                </VBox>   
+                 <VBox id="vBox2" justifyContent="Center" class="sapUiSmallMarginEnd">
+                   <Label id="label2" text="Price"></Label>
+                    <Text id="text2" text="{UnitPrice}"></Text>
+                </VBox>             
+            </FlexBox>
+        
+        </u:headerContent>
+        <u:sections>
+            <u:ObjectPageSection id="objPageSection1" title="Supplier Information">
+                <u:subSections>
+                    <u:ObjectPageSubSection id="objPageSubSection1">
+                        <u:blocks>
+                            <form:SimpleForm id="simpeForm1"
+                                    maxContainerCols="1"
+                                    editable="false"
+                                    layout="ResponsiveGridLayout"
+                                    labelSpanL="12"
+                                    labelSpanM="12"
+                                    emptySpanL="0"
+                                    emptySpanM="0"
+                                    columnsL="1"
+                                    columnsM="1">
+                                    <form:content>
+                                            <VBox id="vvbox1">
+                                                <Label id="sName" text="Supplier Name"/>
+                                                <Text id="cnText" text="{Supplier/ContactName}"/>
+                                            </VBox>                                        
+                                            <VBox id="vvbox2">
+                                                <Label id="cName" text="Company Name"/>
+                                                <Text id="cText" text="{Supplier/CompanyName}"/>
+                                            </VBox>                                        
+                                            <VBox id="vvbox3">
+                                                <Label id="cTitle" text="Contact Title"/>
+                                                <Text id="ctText" text="{Supplier/ContactTitle}"/>
+                                            </VBox> 
+                                            <VBox id="vvbox4">
+                                                <Label id="aTitle1" text="Address"/>
+                                                <Text id="aText1" text="{Supplier/Address}"/>
+                                            </VBox> 
+                                       
+                                    </form:content>
+
+                            </form:SimpleForm>
+                            <form:SimpleForm id="simpeForm11"
+                                    maxContainerCols="1"
+                                    editable="false"
+                                    layout="ResponsiveGridLayout"
+                                    labelSpanL="12"
+                                    labelSpanM="12"
+                                    emptySpanL="0"
+                                    emptySpanM="0"
+                                    columnsL="2"
+                                    columnsM="1">
+                                    <form:content>
+                                            <VBox id="vvbox11">
+                                                <Label id="sName1" text="Supplier Name"/>
+                                                <Text id="cnText1" text="{Supplier/ContactName}"/>
+                                            </VBox>                            
+                                    </form:content>
+                            </form:SimpleForm>
+                        </u:blocks>
+                    </u:ObjectPageSubSection>
+                </u:subSections>
+            </u:ObjectPageSection>
+
+            <u:ObjectPageSection id="objPageSection2" title="Order Details">
+                <u:subSections>
+                    <u:ObjectPageSubSection id="objPageSubSection2">
+                        <u:blocks>
+                             <Table id="ordersTable"
+                                    mode="SingleSelectLeft"
+                                    selectionChange="navigateToOrder"
+                                    items="{Order_Details}"
+                                    >
+                                    <columns>
+                                        <Column id="OrderID">
+                                            <Text id="tOrderID" text="Order ID"/>
+                                        </Column>
+                                        <Column id="UnitPrice">
+                                            <Text id="tUnitPrice" text="Unit Price"/>
+                                        </Column>
+                                        <Column id="Quantity">
+                                            <Text id="tQuantity" text="Quantity"/>
+                                        </Column>
+                                        <Column id="Discount">
+                                            <Text id="tDiscount" text="Discount"/>
+                                        </Column>
+                                    </columns>
+                                    <items>
+                                        <ColumnListItem id="colLisItem" vAlign="Middle">
+                                            <cells>
+                                                <ObjectIdentifier
+                                                    id="objIdetifier"
+                                                    title="{OrderID}"
+                                                   />
+                                              
+                                                <Text
+                                                    id="vUnitPrice"
+                                                    text="{UnitPrice}" />
+                                                <ObjectNumber
+                                                    id="vQuantity"
+                                                    number="{Quantity}"
+                                                   />
+                                                <ObjectNumber
+                                                    id="vDiscount"
+                                                    number="{Discount}"
+                                                    unit="{CurrencyCode}" />
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
+                             </Table>
+                        </u:blocks>
+                    </u:ObjectPageSubSection>
+                </u:subSections>
+            </u:ObjectPageSection>
+        </u:sections>
+    </u:ObjectPageLayout>
+
+</mvc:View>
