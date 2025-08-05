@@ -2,8 +2,9 @@ sap.ui.define([
     "sap/ui/core/UIComponent",
     "com/brs/fleixblecolumnlayout/model/models",
     "sap/f/FlexibleColumnLayoutSemanticHelper",
-    "sap/f/library"
-], (UIComponent, models,  FlexibleColumnLayoutSemanticHelper, library) => {
+    "sap/f/library",
+    "sap/ui/model/json/JSONModel",
+], (UIComponent, models,  FlexibleColumnLayoutSemanticHelper, library, JSONModel) => {
     "use strict";
     
     var LayoutType = library.LayoutType;
@@ -22,6 +23,11 @@ sap.ui.define([
 
             // set the device model
             this.setModel(models.createDeviceModel(), "device");
+
+
+            let oModel = new JSONModel({bInitial:true, sInitialPath:"", sTablePath:""});
+            oModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
+            this.setModel(oModel,"state")
 
             // enable routing
             this.getRouter().initialize();

@@ -102,7 +102,7 @@
         },{
           "name": "RouteThirdColumn",
           "pattern":"second-column/{param}/{param2}/:?query:",
-          "targe": ["TargetFirstColumn","TargetSecondCloumn","TargetThirdColumn"]
+          "target": ["TargetFirstColumn","TargetSecondCloumn","TargetThirdColumn"]
         }
       ],
       "targets": {

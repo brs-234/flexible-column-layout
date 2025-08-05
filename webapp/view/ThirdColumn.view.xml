@@ -4,6 +4,96 @@
     xmlns:u="sap.uxap"
     xmlns:form="sap.ui.layout.form"
     xmlns:f="sap.f">
-    <Page id="tPage"></Page>
+    <u:ObjectPageLayout id='tObjectPageLayout'
+                        showTitleInHeaderContent="true"
+                        alwaysShowContentHeader="false"
+                        preserveHeaderStateOnScroll="true"
+                        headerContentPinnable="true"
+                        isChildPage="true"
+                        >
+         <u:headerTitle>
+            <u:ObjectPageDynamicHeaderTitle id="topdTitle">
+                <u:expandedHeading>
+                    <Title id="t_title1" text="{Order/OrderID}" wrapping="true"></Title>
+                </u:expandedHeading>
+                <u:snappedHeading>
+                   
+                </u:snappedHeading>
+                
+            </u:ObjectPageDynamicHeaderTitle>
+        </u:headerTitle>
+        <u:headerContent>
+            <FlexBox id="t_fbox1" wrap="Wrap" fitContainer="true" >
+                <VBox id="t_vBox1" justifyContent="Center" class="sapUiSmallMarginEnd">
+                   <Label id="t_label1" text="Date"></Label>
+                    <Text id="t_text1" text="{path : 'Order/OrderDate', type:'sap.ui.model.type.DateTime' }"></Text>
+                </VBox>   
+            
+                <VBox id="t_vBox3" justifyContent="Center" class="sapUiSmallMarginEnd">
+                   <Label id="t_label3" text="Required Date"></Label>
+                    <Text id="t_text3" text="{path: 'Order/RequiredDate', type:'sap.ui.model.type.DateTime'}"></Text>
+                </VBox>  
+                
+            </FlexBox>
+        
+        </u:headerContent>
+        <u:sections>
+            <u:ObjectPageSection id="t_objPageSection1" title="Shipment Information" showTitle='true'>
+                <u:subSections>
+                    <u:ObjectPageSubSection id="t_objPageSubSection1">
+                        <u:blocks>
+                            <form:SimpleForm id="t_simpeForm1"
+                                    maxContainerCols="1"
+                                    editable="false"
+                                    layout="ResponsiveGridLayout"
+                                    labelSpanL="12"
+                                    labelSpanM="12"
+                                    emptySpanL="0"
+                                    emptySpanM="0"
+                                    columnsL="1"
+                                    columnsM="1">
+                                    <form:content>
+                                            <VBox id="t_vvbox1">
+                                                <Label id="r_sName" text="Shipment Name"/>
+                                                <Text id="r_snText" text="{Order/ShipName}"/>
+                                            </VBox>                                        
+                                            <VBox id="t_vvbox2">
+                                                <Label id="l_sDate" text="Shipment Date"/>
+                                                <Text id="t_sdate" text="{path: 'Order/ShippedDate', type:'sap.ui.model.type.DateTime'}"/>
+                                            </VBox>                                        
+                                            <VBox id="t_vvbox3">
+                                                <Label id="tfTitle" text="Freight Charges"/>
+                                                <Text id="tfText" text="{Order/Freight}"/>
+                                            </VBox> 
+                                            <VBox id="t_vvbox4">
+                                                <Label id="t_aTitle1" text="Address"/>
+                                                <Text id="t_aText1" text="{Order/ShipAddress}"/>
+                                            </VBox> 
+                                            <VBox id="t_vvbox5">
+                                                <Label id="t_sCity" text="Ship City"/>
+                                                <Text id="t_sCityText" text="{Order/ShipCity}"/>
+                                            </VBox>
+                                            <VBox id="t_vvbox6">
+                                                <Label id="t_ShipRegion" text="Ship Region"/>
+                                                <Text id="t_ShipRegionText" text="{Order/ShipRegion}"/>
+                                            </VBox>
+                                            <VBox id="t_vvbox7">
+                                                <Label id="t_ShipPostalCode" text="Ship Postal Code"/>
+                                                <Text id="t_ShipPostalCodeText" text="{Order/ShipPostalCode}"/>
+                                            </VBox>
+                                            <VBox id="t_vvbox8">
+                                                <Label id="t_ShipCountry" text="Ship Country"/>
+                                                <Text id="t_ShipCountryText" text="{Order/ShipCountry}"/>
+                                            </VBox>
+                                    </form:content>
+
+                            </form:SimpleForm>
+                           
+                        </u:blocks>
+                    </u:ObjectPageSubSection>
+                </u:subSections>
+            </u:ObjectPageSection>            
+        </u:sections>
+    </u:ObjectPageLayout>
 
 </mvc:View>

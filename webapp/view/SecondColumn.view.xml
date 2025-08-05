@@ -16,6 +16,11 @@
                 <u:expandedHeading>
                     <Title id="title1" text="{Category/CategoryName}" wrapping="true"></Title>
                 </u:expandedHeading>
+                <u:navigationActions> 
+                    <OverflowToolbarButton  type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen" id="enterFullScreenBtn" tooltip="Enter Full Screen Mode" visible="{= ${ui>/actionButtonsInfo/midColumn/fullScreen} !== null }"/> 
+                    <OverflowToolbarButton  type="Transparent" icon="sap-icon://exit-full-screen" press="handleExitFullScreen" id="exitFullScreenBtn" tooltip="Exit Full Screen Mode" visible="{= ${ui>/actionButtonsInfo/midColumn/exitFullScreen} !== null }"/> 
+                    <OverflowToolbarButton id="obtn3" type="Transparent" icon="sap-icon://decline" press="handleClose" tooltip="Close middle column" visible="{= ${ui>/actionButtonsInfo/midColumn/closeColumn} !== null }"/> 
+                </u:navigationActions>
                 <u:snappedHeading>
                     <!-- <FlexBox id="flexBox" wrap="Wrap" 
                             alignItems="Center">
@@ -115,7 +120,9 @@
                              <Table id="ordersTable"
                                     mode="SingleSelectLeft"
                                     selectionChange="navigateToOrder"
-                                    items="{Order_Details}"
+                                    items="{
+                                        path: 'Order_Details'
+                                    }"
                                     >
                                     <columns>
                                         <Column id="OrderID">

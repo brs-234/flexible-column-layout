@@ -10,7 +10,13 @@ sap.ui.define([
         oRouter.attachRouteMatched(this.onRouterMatched, this);
         let data = new JSONModel({layout: "OneColumn"});
         this.getOwnerComponent().setModel(data,'ui');
+
+   
+
         this.oFCL = this.getView().byId("fcl");
+
+        
+        
       },
 
       onRouterMatched:function(oEvent){
@@ -18,12 +24,16 @@ sap.ui.define([
         let sLayout = query != undefined ? query.layout : null;
         if(!sLayout) {
           let oNextUIState = this.getOwnerComponent().getHelper().getNextUIState(0);
-          sLayout = oNextUIState
+          sLayout = oNextUIState.layout
         }
 
         if(sLayout){
           this.getOwnerComponent().getModel('ui').setProperty('/layout',sLayout)
         }
+
+        let oActionButtonsInfo = this.getOwnerComponent().getHelper().getCurrentUIState().actionButtonsInfo;
+        this.getOwnerComponent().getModel("ui").setProperty("/actionButtonsInfo", oActionButtonsInfo);
+        
       }
   });
 });

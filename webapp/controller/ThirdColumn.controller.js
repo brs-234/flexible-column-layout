@@ -20,7 +20,7 @@ sap.ui.define([
     
                 this.getView().bindElement({
                     path: sPath,
-                    parameters: { expand: 'Order_Details, Category, Supplier' }
+                    parameters: { expand: 'Order'}
                 });
              
             }    
