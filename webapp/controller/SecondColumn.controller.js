@@ -37,15 +37,22 @@ sap.ui.define([
         handleFullScreen:function(oEvent){
             let sNextLayout = this.getOwnerComponent().getModel('ui').getProperty("/actionButtonsInfo/midColumn/fullScreen");
             this.getOwnerComponent().getRouter().navTo("RouteSecondColumn",{
-                param: encodeURIComponent(this.getView().getElementBinding().getPath),
+                param: encodeURIComponent(this.getView().getElementBinding().getPath()),
                 query: {layout: sNextLayout}
             })
         },
         handleExitFullScreen:function(oEvent){
-
+            let sNextLayout = this.getOwnerComponent().getModel('ui').getProperty('/actionButtonsInfo/midColumn/exitFullScreen');
+            this.getOwnerComponent().getRouter().navTo('RouteSecondColumn',{
+                param: encodeURIComponent(this.getView().getElementBinding().getPath()),
+                query: {layout: sNextLayout}
+            })
         },
         handleClose: function(oEvent){
-
+            let sNextLayout = this.getOwnerComponent().getModel('ui').getProperty("/actionButtonsInfo/midColumn/closeColumn");
+            this.getOwnerComponent().getRouter().navTo("RouteFirstColumn",{
+                query: {layout: sNextLayout}
+            })
         },
         navigateToOrder:function(oEvent){
             let oBindingContext = oEvent.getParameters().listItem.getBindingContext();

@@ -16,6 +16,11 @@
                 <u:expandedHeading>
                     <Title id="t_title1" text="{Order/OrderID}" wrapping="true"></Title>
                 </u:expandedHeading>
+                <u:navigationActions> 
+                    <OverflowToolbarButton  type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen" id="enterFullScreenBtn1" tooltip="Enter Full Screen Mode" visible="{= ${ui>/actionButtonsInfo/endColumn/fullScreen} !== null }"/> 
+                    <OverflowToolbarButton  type="Transparent" icon="sap-icon://exit-full-screen" press="handleExitFullScreen" id="exitFullScreenBtn1" tooltip="Exit Full Screen Mode" visible="{= ${ui>/actionButtonsInfo/endColumn/exitFullScreen} !== null }"/> 
+                    <OverflowToolbarButton id="closMiddelScreen" type="Transparent" icon="sap-icon://decline" press="handleClose" tooltip="Close middle column" visible="{= ${ui>/actionButtonsInfo/endColumn/closeColumn} !== null }"/> 
+                </u:navigationActions>
                 <u:snappedHeading>
                    
                 </u:snappedHeading>
